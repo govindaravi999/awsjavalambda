@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>upload-releases</id>
+      <username>jk2ThSP3</username>
+      <password>A8e2d41-9pltHmodzDgfYSshIXdYlzFmx-EjcUFl6WOv</password>
+      <filePermissions>664</filePermissions>
+      <directoryPermissions>775</directoryPermissions>
+    </server>
+    <server>
+      <id>upload-snapshots</id>
+      <username>jk2ThSP3</username>
+      <password>A8e2d41-9pltHmodzDgfYSshIXdYlzFmx-EjcUFl6WOv</password>
+      <filePermissions>664</filePermissions>
+      <directoryPermissions>775</directoryPermissions>
+    </server>
+    <server>
+      <id>sabre-mirror</id>
+      <configuration>
+        <timeout>120000</timeout>
+      </configuration>
+    </server>
+  </servers>
+
+  <mirrors>
+    <mirror>
+      <id>sabre-mirror</id>
+      <url>https://repository.sabre.com/repository/maven-all/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <sonar.language>java</sonar.language>
+        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.junit.reportsPath>target/surefire-reports</sonar.junit.reportsPath>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <!--sonar.jdbc.url>${env.SONAR_JDBC_URL}</sonar.jdbc.url>
+        <sonar.jdbc.username>${env.SONAR_JDBC_USERNAME}</sonar.jdbc.username>
+        <sonar.jdbc.password>${env.SONAR_JDBC_PASSWORD}</sonar.jdbc.password-->
+        <sonar.host.url>${env.SONAR_HOST_URL}</sonar.host.url>
+        <sonar.login>${env.SONAR_LOGIN}</sonar.login>
+        <!--sonar.password>${env.SONAR_PASSWORD}</sonar.password-->
+      </properties>
+    </profile>
+  </profiles>
+  
+</settings>
